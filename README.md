@@ -3,7 +3,7 @@
 Проект поднимает Linux VM через Vagrant и VirtualBox
 На виртуалке стоит Ubuntu 22.04 LTS
 
-При запуске автоматиечки выполняется скрипт provision.sh:
+При запуске автоматически выполняется скрипт provision.sh:
 - устанавливает nginx,
 - включает nginx как сервис,
 - создаёт тестовую HTML-страницу с ФИО, группой и датой
@@ -12,6 +12,8 @@
 - vagrant up --provider=virtualbox - запустить VM,
 - vagrant status — проверить статус VM,
 - vagrant ssh - зайти внутрь VM
+
+Зависимости: Vagrant и VirtualBox
 
 Проверить с хоста: открыть http://127.0.0.1:8080
 

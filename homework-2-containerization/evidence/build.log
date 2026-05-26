@@ -1,0 +1,74 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 377B done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.9s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89
+#3 resolve docker.io/docker/dockerfile:1@sha256:87999aa3d42bdc6bea60565083ee17e86d1f3339802f543c0d03998580f9cb89 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/nginx:alpine
+#4 DONE 0.7s
+
+#5 [internal] load metadata for docker.io/library/node:22-alpine
+#5 DONE 0.7s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 180B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+#8 resolve docker.io/library/nginx:alpine@sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a 0.0s done
+#8 DONE 0.0s
+
+#9 [build 1/8] FROM docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+#9 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920 0.0s done
+#9 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 222B done
+#7 DONE 0.0s
+
+#10 [build 2/8] WORKDIR /app
+#10 CACHED
+
+#11 [build 3/8] COPY package.json package-lock.json ./
+#11 CACHED
+
+#12 [build 4/8] RUN npm ci
+#12 CACHED
+
+#13 [build 6/8] COPY vite.config.js ./
+#13 CACHED
+
+#14 [build 7/8] COPY src ./src
+#14 CACHED
+
+#15 [build 8/8] RUN npm run build
+#15 CACHED
+
+#16 [build 5/8] COPY index.html ./
+#16 CACHED
+
+#17 [stage-1 2/2] COPY --from=build /app/dist /usr/share/nginx/html
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:6a6ae9c0197865b3dcf944b08424bdf40377860656f93b7cd868b1e23a4fdfee done
+#18 exporting config sha256:0d2926400a7af914a2c528760f2ec7e1bdd5d592bd0e3d9506a56523f5449264 done
+#18 exporting attestation manifest sha256:22b03be013eacf9e4b9b0a4273e67f3d4800cd9ffe855f4b06e26cf65f5cfee6 0.0s done
+#18 exporting manifest list sha256:3758cbafc428203a0ec60b845ee03642ee2265648cdf9fa6a55ec9a4ed907308 0.0s done
+#18 naming to docker.io/kseniadakiny/frontend:1.0.0 done
+#18 unpacking to docker.io/kseniadakiny/frontend:1.0.0 0.0s done
+#18 naming to docker.io/kseniadakiny/frontend:latest
+#18 naming to docker.io/kseniadakiny/frontend:latest done
+#18 unpacking to docker.io/kseniadakiny/frontend:latest 0.0s done
+#18 DONE 0.1s

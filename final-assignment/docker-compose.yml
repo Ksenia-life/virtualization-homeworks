@@ -1,0 +1,42 @@
+services:
+  proxy:
+    image: nginx:alpine
+    container_name: idz-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+    networks:
+      - idz-network
+
+  app:
+    image: traefik/whoami:v1.10
+    container_name: idz-app
+    networks:
+      - idz-network
+
+  db:
+    image: postgres:16-alpine
+    container_name: idz-db
+    env_file:
+      - .env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - idz-network
+
+networks:
+  idz-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

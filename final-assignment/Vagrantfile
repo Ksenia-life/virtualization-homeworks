@@ -1,0 +1,19 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.box_check_update = false
+
+  config.vm.hostname = "idz-vm"
+  config.vm.boot_timeout = 600
+
+  config.vm.network "forwarded_port", guest: 80, host: 8081, auto_correct: true
+
+  config.vm.synced_folder ".", "/vagrant"
+
+  config.vm.provision "shell", path: "provision.sh"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "idz-vm"
+    vb.memory = 2048
+    vb.cpus = 2
+  end
+end

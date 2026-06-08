@@ -36,3 +36,20 @@ homework-2-containerization/
 - `.dockerignore` — исключение лишних файлов из контекста сборки;
 - `README.md` — команды сборки, запуска и проверки;
 - `evidence/` — файлы с подтверждением результата.
+
+## Итоговое домашнее задание
+
+Итоговое задание находится в папке:
+
+```text
+final-assignment/
+```
+
+Внутри лежат:
+
+- `Vagrantfile` — конфигурация виртуальной машины;
+- `provision.sh` — установка Docker, Docker Compose и настройка firewall;
+- `docker-compose.yml` — описание контейнеров;
+- `nginx.conf` — конфигурация reverse proxy;
+- `.env` — переменные окружения для PostgreSQL;
+- `evidence/` — файлы с результатами проверки.

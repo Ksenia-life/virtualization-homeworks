@@ -5,7 +5,10 @@
 Схема работы:
 
 ```text
-VM - Docker Compose - nginx - приложение - PostgreSQL
+Ubuntu (Vagrant + VirtualBox)
+└── Docker Compose
+    ├── Nginx -> тестовое приложение
+    └── PostgreSQL -> Docker volume
 ```
 
 ## Состав проекта
@@ -14,7 +17,8 @@ VM - Docker Compose - nginx - приложение - PostgreSQL
 - `provision.sh` — установка Docker, Docker Compose и настройка firewall;
 - `docker-compose.yml` — описание контейнеров;
 - `nginx.conf` — конфигурация reverse proxy;
-- `.env` — переменные окружения для PostgreSQL;
+- `.env.example` — пример переменных окружения для PostgreSQL;
+- `.env` — локальный файл настроек, создаётся пользователем и не хранится в Git;
 - `evidence/` — файлы с результатами проверки.
 
 ## Виртуальная машина
